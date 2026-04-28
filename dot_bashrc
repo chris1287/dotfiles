@@ -110,5 +110,3 @@ alias cdc="ssh -J root@cdc root@192.168.111.75"
 # questo per far funzionare i tool .NET di merda (qualcomm)
 export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0
 
-export SSH_AUTH_SOCK=/home/crp/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock
-

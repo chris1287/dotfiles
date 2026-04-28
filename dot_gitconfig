@@ -1,0 +1,29 @@
+[user]
+    email = cristiano.prato@egluetechnologies.com
+    name = Cristiano Prato
+[color]
+    ui = auto
+[cola]
+    spellcheck = false
+[core]
+    editor = nvim
+[pull]
+    rebase = true
+[status]
+    submoduleSummary = true
+[merge]
+    tool = meld
+[alias]
+    lg = log --color --graph --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'
+    count-lines = "! git log --author=\"$1\" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\\n\", add, subs, loc }' #"
+    co = checkout
+
+[credential "https://github.com"]
+    helper = 
+    helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+    helper = 
+    helper = !/usr/bin/gh auth git-credential
+
+[push]
+    autoSetupRemote = true

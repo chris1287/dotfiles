@@ -1,0 +1,87 @@
+Host 192.168.*
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+
+Host 10.*
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+
+Host 127.*
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+
+Host github-eglue
+    HostName github.com
+    identityfile ~/.ssh/id_rsa_iveco
+
+Host github-personal
+    HostName github.com
+    IdentityFile ~/.ssh/id_rsa
+
+Host ssh.dev.azure.com
+    IdentityFile ~/.ssh/id_rsa_iveco
+    User git
+
+Host slot1
+    HostName 10.253.100.217
+    User root
+    IdentityFile /home/crp/Conti/leap-stp-hl-ssh-root.pem
+Host slot2
+    HostName 10.17.99.97
+    User root
+    IdentityFile /home/crp/Conti/leap-stp-hl-ssh-root.pem
+Host slot3
+    HostName 10.23.253.29
+    User root
+    IdentityFile /home/crp/Conti/leap-stp-hl-ssh-root.pem
+Host slot4
+    HostName 10.201.220.229
+    User root
+    IdentityFile /home/crp/Conti/leap-stp-hl-ssh-root.pem
+Host slot5
+    HostName 10.140.60.105
+    User root
+    IdentityFile /home/crp/Conti/leap-stp-hl-ssh-root.pem
+Host slot6
+    HostName 10.94.58.69
+    User root
+    IdentityFile /home/crp/Conti/leap-stp-hl-ssh-root.pem
+
+Host slot7
+    HostName 10.72.67.93
+    User root
+    IdentityFile /home/crp/Conti/leap-stp-hl-ssh-root.pem
+
+Host awsbastion
+    HostName ec2-18-185-249-200.eu-central-1.compute.amazonaws.com
+    IdentityFile ~/.ssh/id_rsa_iveco
+    User cristiano-prato
+    ForwardAgent yes
+
+Host awsbuild
+    HostName 10.121.126.217
+    IdentityFile ~/.ssh/id_rsa_iveco
+    User cristiano-prato
+    ProxyJump awsbastion
+
+Host awscdctele
+    HostName 10.121.126.218
+    IdentityFile ~/.ssh/id_rsa_iveco
+    User cristiano-prato
+    ProxyJump awsbastion
+
+Host raspi_cdc
+    HostName 10.20.1.31
+    User eglue
+    ForwardAgent yes
+
+Host cdc2tel
+    User root
+    Hostname 10.20.1.2
+    ProxyJump raspi_cdc
+
+Host cdc2qnx
+    User root
+    Hostname 10.20.1.1
+    ProxyJump raspi_cdc
+
