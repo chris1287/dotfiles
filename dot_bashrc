@@ -1,0 +1,114 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+unset rc
+
+export PS1='\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;36m\]\w\[\033[00m\] $ '
+
+function azpr() {
+    local org="https://dev.azure.com/Ivecogrp"
+    local query='.[] 
+    | select(.reviewers[]
+        | select(.uniqueName=="cristiano.prato2@external.ivecogroup.com" and .vote == 0)
+    )
+    | [.repository.name, .title, .createdBy.uniqueName] 
+    | join("\n") + "\n"'
+
+    for project in SWALab_HMI_and_Connectivity CV_Telematics_MiST CV_PCM3_Applications; do
+        echo "Project: $project"
+        az repos pr list \
+            --organization "$org" \
+            --project "$project"  \
+            | jq -r "$query"
+    done
+}
+
+function azprall() {
+    local org="https://dev.azure.com/Ivecogrp"
+    local query='.[] 
+    | select(.reviewers[]
+        | select(.uniqueName=="cristiano.prato2@external.ivecogroup.com")
+    )
+    | [.repository.name, .title, .createdBy.uniqueName] 
+    | join("\n") + "\n"'
+
+    for project in SWALab_HMI_and_Connectivity CV_Telematics_MiST CV_PCM3_Applications; do
+        echo "Project: $project"
+        az repos pr list \
+            --organization "$org" \
+            --project "$project"  \
+            | jq -r "$query"
+    done
+}
+
+function aztelematics() {
+    az repos list --org https://dev.azure.com/Ivecogrp --project SWALab_HMI_and_Connectivity  --query "[?contains(to_string(@), 'telematics')].name"
+}
+
+function git_stats() {
+    git ls-files | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
+}
+
+function git_subs() {
+    git submodule foreach 'echo "* $PWD" && git branch && echo "*" ' | grep ^*
+}
+
+alias gsf="git submodule foreach"
+
+# export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# Because Microsoft Sucks
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+
+LS_COLORS=$LS_COLORS:'di=0;33:' ; export LS_COLORS
+
+# For Distrobox
+export DBX_CONTAINER_MANAGER=docker
+
+# For bat
+alias cat="bat --style=plain --paging=never"
+alias man="man '-P bat --style=plain'"
+
+alias vim="nvim"
+alias vi="nvim"
+alias v="nvim"
+
+alias sshbsation="ssh -N -L 8080:10.121.126.216:443 awsbastion"
+
+export EDITOR=nvim
+
+# For scp
+alias scp="scp -O"
+
+alias cdc="ssh -J root@cdc root@192.168.111.75"
+
+# distrobox create -i azeupcmabscrp010.azurecr.io/mist_image:39.0 -n pcm3 -H /home/crp/distrobox/pcm3
+
+. "$HOME/.cargo/env"
+
+# questo per far funzionare i tool .NET di merda (qualcomm)
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0
+
+export SSH_AUTH_SOCK=/home/crp/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock
+
