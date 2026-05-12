@@ -53,7 +53,7 @@ Host slot7
     IdentityFile /home/crp/Conti/leap-stp-hl-ssh-root.pem
 
 Host awsbastion
-    HostName ec2-18-185-249-200.eu-central-1.compute.amazonaws.com
+    HostName ec2-3-73-134-193.eu-central-1.compute.amazonaws.com
     IdentityFile ~/.ssh/id_rsa_iveco
     User cristiano-prato
     ForwardAgent yes
@@ -84,4 +84,3 @@ Host cdc2qnx
     User root
     Hostname 10.20.1.1
     ProxyJump raspi_cdc
-
