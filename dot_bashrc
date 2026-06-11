@@ -101,7 +101,7 @@ export EDITOR=nvim
 # For scp
 alias scp="scp -O"
 
-alias cdc="ssh -J root@cdc root@192.168.111.75"
+alias dlt1="ssh -L 3490:localhost:3490 cdc1tel -N"
 
 # distrobox create -i azeupcmabscrp010.azurecr.io/mist_image:39.0 -n pcm3 -H /home/crp/distrobox/pcm3
 
