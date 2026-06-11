@@ -53,7 +53,8 @@ Host slot7
     IdentityFile /home/crp/Conti/leap-stp-hl-ssh-root.pem
 
 Host awsbastion
-    HostName ec2-3-73-134-193.eu-central-1.compute.amazonaws.com
+    # HostName ec2-3-73-134-193.eu-central-1.compute.amazonaws.com
+    HostName ec2-63-183-9-75.eu-central-1.compute.amazonaws.com
     IdentityFile ~/.ssh/id_rsa_iveco
     User cristiano-prato
     ForwardAgent yes
@@ -75,12 +76,35 @@ Host raspi_cdc
     User eglue
     ForwardAgent yes
 
-Host cdc2tel
+Host cdc1
     User root
-    Hostname 10.20.1.2
-    ProxyJump raspi_cdc
+    Hostname 10.20.5.3
+    ForwardAgent yes
+    HostKeyAlgorithms +ssh-rsa
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    RequiredRSASize 512
 
-Host cdc2qnx
+Host cdc1tel
     User root
-    Hostname 10.20.1.1
-    ProxyJump raspi_cdc
+    Hostname 192.168.1.2
+    ProxyJump cdc1
+    HostKeyAlgorithms +ssh-rsa
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    RequiredRSASize 512
+
+Host cdc2
+    User root
+    Hostname 10.20.5.4
+    ForwardAgent yes
+    HostKeyAlgorithms +ssh-rsa
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    RequiredRSASize 512
+
+Host cdc1tel
+    User root
+    Hostname 192.168.1.2
+    ProxyJump cdc2
+    HostKeyAlgorithms +ssh-rsa
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    RequiredRSASize 512
+
