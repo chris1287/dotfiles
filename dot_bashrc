@@ -98,6 +98,8 @@ alias sshbsation="ssh -N -L 8080:10.121.126.216:443 awsbastion"
 
 export EDITOR=nvim
 
+export PATH=$PATH:$HOME/bin/nvim-linux-x86_64/bin/
+
 # For scp
 alias scp="scp -O"
 
