@@ -86,7 +86,7 @@ Host cdc1
 
 Host cdc1tel
     User root
-    Hostname 192.168.1.2
+    Hostname 172.16.103.23
     ProxyJump cdc1
     HostKeyAlgorithms +ssh-rsa
     PubkeyAcceptedKeyTypes +ssh-rsa
@@ -100,9 +100,9 @@ Host cdc2
     PubkeyAcceptedKeyTypes +ssh-rsa
     RequiredRSASize 512
 
-Host cdc1tel
+Host cdc2tel
     User root
-    Hostname 192.168.1.2
+    Hostname 172.16.103.23
     ProxyJump cdc2
     HostKeyAlgorithms +ssh-rsa
     PubkeyAcceptedKeyTypes +ssh-rsa
