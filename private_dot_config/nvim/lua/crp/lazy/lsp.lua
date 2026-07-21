@@ -24,7 +24,7 @@ return {
                     require("lspconfig").clangd.setup({
                         cmd = {
                             "clangd",
-                            "--query-driver=/opt/sdk/yocto/sysroots/x86_64-oesdk-linux/usr/bin/aarch64-oe-linux/aarch64-oe-linux-g++",
+                            "--query-driver=/home/crp/distrobox/cdc/sdk/yocto/sysroots/x86_64-oesdk-linux/usr/bin/aarch64-oe-linux/aarch64-oe-linux-g++",
                             -- "--query-driver=/opt/iveco-qnx-sdk-2026.03.2/host/linux/x86_64/usr/bin/aarch64-unknown-nto-qnx7.1.0-g++"
                         },
                     })
