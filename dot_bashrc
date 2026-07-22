@@ -74,6 +74,22 @@ function git_subs() {
     git submodule foreach 'echo "* $PWD" && git branch && echo "*" ' | grep ^*
 }
 
+function devlayout() {
+    DIR=${1:?}
+
+    alacritty --working-directory ${DIR} -e nvim "+Oil" &
+    sleep 0.2
+    alacritty --working-directory ${DIR} &
+    sleep 0.2
+    alacritty --working-directory ${DIR} &
+
+    sleep 0.5
+
+    niri msg action consume-or-expel-window-left
+
+    exit 0
+}
+
 alias gsf="git submodule foreach"
 
 # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
