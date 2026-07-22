@@ -100,10 +100,11 @@ export EDITOR=nvim
 
 export PATH=$PATH:$HOME/bin/nvim-linux-x86_64/bin/
 
-# For scp
 alias scp="scp -O"
-
 alias dlt1="ssh -L 3490:localhost:3490 cdc1tel -N"
+
+alias mondown="niri msg output eDP-1 off"
+alias monup="niri msg output eDP-1 on"
 
 # distrobox create -i azeupcmabscrp010.azurecr.io/mist_image:39.0 -n pcm3 -H /home/crp/distrobox/pcm3
 
