@@ -3,7 +3,7 @@ return {
     lazy = false,
     opts = {
         suggestion = {
-            auto_trigger = false,
+            auto_trigger = true,
             trigger_on_accept = true,
             keymap = {
                 accept = "<C-a>",

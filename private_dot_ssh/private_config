@@ -74,27 +74,30 @@ Host awscdctele
 Host raspi_cdc
     HostName 10.20.1.31
     User eglue
+    IdentityFile ~/.ssh/id_rsa_iveco
     ForwardAgent yes
 
-Host cdc1
-    User root
-    Hostname 10.20.5.3
-    ForwardAgent yes
-    HostKeyAlgorithms +ssh-rsa
-    PubkeyAcceptedKeyTypes +ssh-rsa
-    RequiredRSASize 512
-
-Host cdc1tel
-    User root
-    Hostname 172.16.103.23
-    ProxyJump cdc1
-    HostKeyAlgorithms +ssh-rsa
-    PubkeyAcceptedKeyTypes +ssh-rsa
-    RequiredRSASize 512
+# Host cdc1
+#     User root
+#     Hostname 172.16.101.21
+#     ProxyJump raspi_cdc
+#     ForwardAgent yes
+#     HostKeyAlgorithms +ssh-rsa
+#     PubkeyAcceptedKeyTypes +ssh-rsa
+#     RequiredRSASize 512
+#
+# Host cdc1tel
+#     User root
+#     Hostname 172.16.103.23
+#     ProxyJump cdc1
+#     HostKeyAlgorithms +ssh-rsa
+#     PubkeyAcceptedKeyTypes +ssh-rsa
+#     RequiredRSASize 512
 
 Host cdc2
     User root
-    Hostname 10.20.5.4
+    Hostname 172.16.101.21
+    ProxyJump raspi_cdc
     ForwardAgent yes
     HostKeyAlgorithms +ssh-rsa
     PubkeyAcceptedKeyTypes +ssh-rsa

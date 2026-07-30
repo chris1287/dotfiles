@@ -218,4 +218,8 @@ binds {
     // === System Controls ===
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+P { power-off-monitors; }
+
+    // === CrP ====
+    Mod+Shift+Z hotkey-overlay-title="eDP-1 off" { spawn "niri" "msg" "output" "eDP-1" "off"; }
+    Mod+Shift+X hotkey-overlay-title="eDP-1 on" { spawn "niri" "msg" "output" "eDP-1" "on"; }
 }

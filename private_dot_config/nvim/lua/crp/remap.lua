@@ -34,7 +34,7 @@ wk.add({
     {'<leader>dl', vim.diagnostic.setloclist, desc="Open diagnostic in quickfix"},
     {'<leader>df', vim.diagnostic.open_float, desc="Open diagnostic in floating window"},
     {'<leader>t', '<cmd>TodoTelescope<cr>', desc="Telescope TODO"},
-    {'<leader>hh', '<cmd>ClangdSwitchSourceHeader<cr>', desc="Switch Source/Header"},
+    {'<leader>hh', '<cmd>LspClangdSwitchSourceHeader<cr>', desc="Switch Source/Header"},
     {'<leader>yn', function() vim.fn.setreg('+', vim.fn.expand('%')) end, desc="Yank current file name to clipboard"},
 })
 
