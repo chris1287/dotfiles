@@ -111,20 +111,20 @@ binds {
     Mod+Ctrl+End  { move-column-to-last; }
 
     // === Monitor Navigation ===
-    Mod+Ctrl+Left  { focus-monitor-left; }
+    Mod+Ctrl+Left hotkey-overlay-title="Focus Monitor Left" { focus-monitor-left; }
     //Mod+Ctrl+Down  { focus-monitor-down; }
     //Mod+Ctrl+Up    { focus-monitor-up; }
-    Mod+Ctrl+Right { focus-monitor-right; }
+    Mod+Ctrl+Right hotkey-overlay-title="Focus Monitor Right" { focus-monitor-right; }
     Mod+Ctrl+H     { focus-monitor-left; }
     Mod+Ctrl+J     { focus-monitor-down; }
     Mod+Ctrl+K     { focus-monitor-up; }
     Mod+Ctrl+L     { focus-monitor-right; }
 
     // === Move to Monitor ===
-    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Left hotkey-overlay-title="Move Column to Monitor Left" { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+Right hotkey-overlay-title="Move Column to Monitor Right" { move-column-to-monitor-right; }
     Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
