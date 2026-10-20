@@ -1,10 +1,14 @@
 Host 192.168.*
     StrictHostKeyChecking no
     UserKnownHostsFile /dev/null
+    StrictHostKeyChecking no
+    LogLevel ERROR
 
 Host 10.*
     StrictHostKeyChecking no
     UserKnownHostsFile /dev/null
+    StrictHostKeyChecking no
+    LogLevel ERROR
 
 Host 127.*
     StrictHostKeyChecking no
@@ -77,37 +81,81 @@ Host raspi_cdc
     IdentityFile ~/.ssh/id_rsa_iveco
     ForwardAgent yes
 
-# Host cdc1
-#     User root
-#     Hostname 172.16.101.21
-#     ProxyJump raspi_cdc
-#     ForwardAgent yes
-#     HostKeyAlgorithms +ssh-rsa
-#     PubkeyAcceptedKeyTypes +ssh-rsa
-#     RequiredRSASize 512
-#
-# Host cdc1tel
-#     User root
-#     Hostname 172.16.103.23
-#     ProxyJump cdc1
-#     HostKeyAlgorithms +ssh-rsa
-#     PubkeyAcceptedKeyTypes +ssh-rsa
-#     RequiredRSASize 512
+Host cristo
+    HostName 10.20.1.32
+    User eglue
+    StrictHostKeyChecking no
+    LogLevel ERROR
 
-Host cdc2
+Host cdc1
     User root
-    Hostname 172.16.101.21
-    ProxyJump raspi_cdc
+    Hostname 10.20.1.31
+    Port 2201
     ForwardAgent yes
     HostKeyAlgorithms +ssh-rsa
     PubkeyAcceptedKeyTypes +ssh-rsa
     RequiredRSASize 512
+    UserKnownHostsFile /dev/null
+    StrictHostKeyChecking no
+    LogLevel ERROR
 
-Host cdc2tel
+Host cdc1and
     User root
-    Hostname 172.16.103.23
+    Hostname 172.16.101.22
+    ProxyJump cdc1
+    HostKeyAlgorithms +ssh-rsa
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    RequiredRSASize 512
+    UserKnownHostsFile /dev/null
+
+Host cdc1tel
+    User root
+    Hostname 172.16.101.23
+    ProxyJump cdc1
+    HostKeyAlgorithms +ssh-rsa
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    RequiredRSASize 512
+    UserKnownHostsFile /dev/null
+    StrictHostKeyChecking no
+    LogLevel ERROR
+
+Host cdc2
+    User root
+    Hostname 10.20.1.31
+    Port 2202
+    ForwardAgent yes
+    HostKeyAlgorithms +ssh-rsa
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    RequiredRSASize 512
+    UserKnownHostsFile /dev/null
+    StrictHostKeyChecking no
+    LogLevel ERROR
+
+Host cdc2and
+    User root
+    Hostname 172.16.101.22
     ProxyJump cdc2
     HostKeyAlgorithms +ssh-rsa
     PubkeyAcceptedKeyTypes +ssh-rsa
     RequiredRSASize 512
+    UserKnownHostsFile /dev/null
+    StrictHostKeyChecking no
+    LogLevel ERROR
 
+Host cdc2tel
+    User root
+    Hostname 172.16.101.23
+    ProxyJump cdc2
+    HostKeyAlgorithms +ssh-rsa
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    RequiredRSASize 512
+    UserKnownHostsFile /dev/null
+    StrictHostKeyChecking no
+    LogLevel ERROR
+
+Host zabbix
+    HostName 10.121.126.253
+    User cristiano-prato
+    IdentityFile ~/.ssh/id_rsa_iveco
+    ProxyJump awsbastion
+    LocalForward 8080 localhost:80
