@@ -87,6 +87,12 @@ Host cristo
     StrictHostKeyChecking no
     LogLevel ERROR
 
+Host merda
+    HostName 10.20.1.17
+    User pi
+    StrictHostKeyChecking no
+    LogLevel ERROR
+
 Host cdc1
     User root
     Hostname 10.20.1.31

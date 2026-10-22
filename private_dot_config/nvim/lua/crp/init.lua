@@ -48,3 +48,5 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 -- Yank to system clipboard
 vim.opt.clipboard = "unnamedplus"
 
+vim.lsp.inlay_hint.enable(true)
+
